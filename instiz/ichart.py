@@ -9,6 +9,7 @@ from .models import Entry
 class iChart:
     def __init__(self):
         self.entries = []
+        self.top_10 = []
         self.doc = None
         self._generator = None
         self._post_init()
@@ -20,12 +21,11 @@ class iChart:
 
     def realtime_top_10(self):
         """Function that returns a list of current top 10 entries on iChart"""
-        if len(self.entries) == 0:
-            a = 0
-            while a < 10:
-                self._add_to_list()
-                a += 1
-        return self.entries[:10]
+        if len(self.top_10) != 10:
+            generator = self._entry_iterator()
+            while len(self.top_10) < 10:
+                self.top_10.append(next(generator))
+        return self.top_10
 
     def _add_to_list(self):
         self.entries.append(next(self._generator))
