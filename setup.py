@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="instiz",
-    version="0.0.1",
+    version="0.1.0",
     author="Jonathan Nicholas",
     author_email="Jonathan.Nicholas@protonmail.com",
     description="A Python3-only library for iChart K-Pop chart scores.",
@@ -23,7 +23,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Topic :: Utilities",
         "Topic :: Software Development :: Libraries",
     ],
