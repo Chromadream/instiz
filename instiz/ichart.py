@@ -27,6 +27,15 @@ class iChart:
                 self.top_10.append(next(generator))
         return self.top_10
 
+    def refresh(self):
+        """
+        Refreshes the instance.
+        Returns self, so the call can be inlined with other function call
+        """
+        self._make_request()
+        self.entries = []
+        return self
+
     def _add_to_list(self):
         self.entries.append(next(self._generator))
 
