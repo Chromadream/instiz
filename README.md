@@ -6,9 +6,7 @@ A Python3-only library for iChart K-Pop chart scores.
 
 ## Installation
 
-It's currently not on PyPI yet, sorry.
-
-`pip install git+https://github.com/Chromadream/instiz.git`
+`pip install instiz`
 
 ## Contributing
 
