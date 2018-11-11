@@ -13,6 +13,7 @@ setuptools.setup(
         "requests>=2.20.0",
         "beautifulsoup4>=4.6.3",
         "attrs>=18.2.0",
+        "lxml>=4.2.5",
     ],
     long_description=long_description,
     long_description_content_type="text/markdown",
