@@ -8,6 +8,29 @@ A Python3-only library for iChart K-Pop chart scores.
 
 `pip install instiz`
 
+## Getting Started
+
+Getting started is easy. The following example is to get the top 10 at the realtime chart of iChart.
+
+```python
+from instiz import iChart
+
+ichart = iChart()
+top_10 = ichart.realtime_top_10()
+```
+
+## Type hinting
+
+If you're using Python 3.7+'s type hinting feature, the type used for the return type of the chart can be imported from the `instiz.models` module.
+
+```python
+from instiz.models import Entry
+
+def get_name(entry: Entry) -> str:
+    return entry.title
+
+```
+
 ## Contributing
 
 * Fork the repo
@@ -15,3 +38,8 @@ A Python3-only library for iChart K-Pop chart scores.
 * Write your tests so I don't accidentally remove it when updating
 * Run the tests.
 * Make a pull request.
+
+## TODO
+
+[] Document the API
+[] Weekly chart
