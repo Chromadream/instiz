@@ -15,4 +15,4 @@ class Entry(object):
         return {"class": self.change_class, "amount": self.change_amount}
 
     def nice_title(self):
-        return self.title + " - " + self.artist
+        return self.artist + " - " + self.title

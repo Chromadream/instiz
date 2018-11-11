@@ -14,9 +14,9 @@ class iChart:
         self._post_init()
 
     def get_next_entry(self):
-        """Generator function that returns the 11th entry of the iChart onwards"""
+        """Function that returns the next entry of the iChart onwards"""
         self._add_to_list()
-        yield self.entries[-1]
+        return self.entries[-1]
 
     def realtime_top_10(self):
         """Function that returns a list of current top 10 entries on iChart"""
