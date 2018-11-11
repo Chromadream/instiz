@@ -41,5 +41,5 @@ def get_name(entry: Entry) -> str:
 
 ## TODO
 
-[] Document the API
-[] Weekly chart
+- [ ] Document the API
+- [ ] Weekly chart
