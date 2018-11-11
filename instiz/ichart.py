@@ -10,33 +10,31 @@ class iChart:
     def __init__(self):
         self.entries = []
         self.doc = None
-        self.generator = None
+        self._generator = None
         self._post_init()
 
-    def current_top_10(self):
-        a = 0
-        while a < 10:
-            self._add_to_list()
-            a += 1
+    def get_next_entry(self):
+        """Generator function that returns the 11th entry of the iChart onwards"""
+        self._add_to_list()
+        yield self.entries[-1]
+
+    def realtime_top_10(self):
+        """Function that returns a list of current top 10 entries on iChart"""
+        if len(self.entries) == 0:
+            a = 0
+            while a < 10:
+                self._add_to_list()
+                a += 1
         return self.entries[:10]
 
-    def get_next_entry(self):
-        a = 0
-        if a < len(self.entries):
-            yield self.entries[a]
-        else:
-            self._add_to_list()
-            yield self.entries[a]
-        a += 1
-
     def _add_to_list(self):
-        self.entries.append(next(self.generator))
+        self.entries.append(next(self._generator))
 
     def _make_request(self):
         request = get(URL, headers=HEADERS)
         self.doc = BeautifulSoup(request.text)
 
-    def _generator_function(self):
+    def _entry_iterator(self):
         result_set = self.doc.find_all(
             class_=compile("spage_score_item(_1st)*")
         )
@@ -60,5 +58,5 @@ class iChart:
 
     def _post_init(self):
         self._make_request()
-        self.generator = self._generator_function()
+        self._generator = self._entry_iterator()
 
