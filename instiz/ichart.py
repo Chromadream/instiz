@@ -38,7 +38,7 @@ class iChart:
 
     def _make_request(self):
         request = get(URL, headers=HEADERS, timeout=15)
-        self.doc = BeautifulSoup(request.text, "html.parser")
+        self.doc = BeautifulSoup(request.text, "lxml")
 
     def _entry_iterator(self):
         result_set = self.doc.find_all(
@@ -59,7 +59,9 @@ class iChart:
         score_div = div.find(
             class_=compile("ichart_score[0-9]*_score")
         ).find_all("img")
-        score = int("".join([int_parse(score["src"]) for score in score_div]))
+        score = int(
+            "".join([str(int_parse(score["src"])) for score in score_div])
+        )
         return Entry(title, artist, rank, change_class, change_rank, score)
 
     def _post_init(self):
