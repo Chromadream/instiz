@@ -31,6 +31,7 @@ class iChart:
         """
         self._make_request()
         self.entries = []
+        self._generator = self._entry_iterator()
         return self
 
     def _add_to_list(self):
