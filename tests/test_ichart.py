@@ -35,4 +35,4 @@ def test_changes_in_entry(class_init):
 
 def test_nice_title_formatting(class_init):
     x = class_init.get_next_entry()
-    assert x.nice_title() == x.artist + " - " + x.title
+    assert x.nice_title == str(x.artist) + " - " + x.title

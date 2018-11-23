@@ -17,6 +17,7 @@ from instiz import iChart
 
 ichart = iChart()
 top_10 = ichart.realtime_top_10()
+
 ```
 
 ## Type hinting
@@ -28,6 +29,22 @@ from instiz.models import Entry
 
 def get_name(entry: Entry) -> str:
     return entry.title
+
+```
+
+## Artist name
+
+It's now possible to get the Korean name and the English name of an artist easily, alongside with the raw artist name provided from iChart's site. Nice title property will always return the English name, unless unavailable. If one of the names are unavailable, the property will return an empty string.
+
+```python
+from instiz import iChart
+
+ichart = iChart()
+first_place = ichart.get_next_entry()
+nice_title = first_place.nice_title # JENNIE - SOLO
+raw_artist_name = first_place.artist.raw_name # 제니 (JENNIE)
+english_artist_name = first_place.artist.english_name # JENNIE
+korean_artist_name = first_place.artist.korean_name # 제니
 
 ```
 
