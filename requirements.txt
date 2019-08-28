@@ -12,7 +12,7 @@ lxml==4.2.5
 mccabe==0.6.1
 more-itertools==4.3.0
 pluggy==0.8.0
-py==1.7.0
+py==1.8.0
 pytest==4.0.1
 pylint==2.2.2
 requests==2.20.1
